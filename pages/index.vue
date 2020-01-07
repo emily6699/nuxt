@@ -3,24 +3,7 @@
          <section class="intro">
            <div>Get the latest tech news!</div>
          </section>
-         <section class="featured-posts">
-           
-           <PostPreview
-           id="1"
-           thumbnail=""
-           title="Title 1"
-           previewText="Text 1"/>
-           <PostPreview
-           id="2"
-           thumbnail=""
-           title="Title 2"
-           previewText="Text 2"/>
-           <PostPreview
-           id="3"
-           thumbnail=""
-           title="Title 3"
-           previewText="Text 3"/>
-         </section>
+         
       </div>
 </template>
 
