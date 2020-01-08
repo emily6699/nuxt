@@ -3,20 +3,44 @@
          <section class="intro">
            <div>Get the latest tech news!</div>
          </section>
-         
+         <PostList :posts="loadedPosts"/>
       </div>
 </template>
 
 <script>
-import Logo from "~/components/Logo.vue";
-import Header from "~/components/Header.vue"
-import PostPreview from "@/components/Posts/PostPreview.vue"
+import PostList from "@/components/Posts/PostList.vue"
 
 export default {
   components: {
-    Logo,
-    Header,
-    PostPreview
+    PostList
+  },
+  // data(){
+  //   return{
+  //     loadedPosts:[]
+  //   }
+  // },
+  asyncData(context, callback){
+    console.log('context',context)
+     setTimeout(()=>{
+       callback(null,{loadedPosts:[
+                {
+                  id:"1",
+                  title:"First Post~",
+                  previewText:"This is our first post!",
+                  thumbnail:"https://via.placeholder.com/150"
+                },
+                {
+                  id:"2",
+                  title:"Second Post",
+                  previewText:"This is our Second post!",
+                  thumbnail:"https://via.placeholder.com/150"
+                }
+               ]})
+       },1500)
+
+  },
+  created(){
+   
   }
 };
 </script>

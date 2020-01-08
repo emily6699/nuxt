@@ -1,23 +1,14 @@
 <template>
       <section class="posts-list">
            <PostPreview
-           id="1"
-           thumbnail=""
-           title="Title 1"
-           previewText="Text 1"
-           :is-admin="isAdmin"/>
-           <PostPreview
-           id="2"
-           thumbnail=""
-           title="Title 2"
-           previewText="Text 2"
-           :is-admin="isAdmin"/>
-           <PostPreview
-           id="3"
-           thumbnail=""
-           title="Title 3"
-           previewText="Text 3"
-           :is-admin="isAdmin"/>
+              v-for="post in posts"
+              :key="post.id"
+              :id="post.id"
+              :thumbnail="post.thumbnail"
+              :title="post.title"
+              :previewText="post.previewText"
+              :is-admin="isAdmin"/>
+          
       </section>
 </template>
 <script>
@@ -30,8 +21,12 @@ import PostPreview from "@/components/Posts/PostPreview.vue"
     props:{
         isAdmin:{
           type:Boolean,
-          required:true
+          required:false
         },
+        posts:{
+          type:Array,
+          required:false
+        }
       }
  };
 </script>
