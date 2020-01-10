@@ -10,7 +10,17 @@ const createStore =()=>{
                 state.loadedPosts = posts
             }
         },
-        actions:{},
-        getters:{}
+        actions:{
+            setPosts(vuexContext,posts){
+                vuexContext.commit('setPosts',posts)
+            }
+        },
+        getters:{
+            loadedPosts(state){
+                return state.loadedPosts
+            }
+        }
     })
 }
+
+export default createStore

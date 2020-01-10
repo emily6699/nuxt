@@ -28,7 +28,7 @@ export default {
                   thumbnail:"https://via.placeholder.com/150"
                 }
                ]})
-       },1500)
+       },1000)
       // rejct(new Error())
     })
     .then(data=>{
@@ -36,9 +36,11 @@ export default {
     }).catch(e=>{
       context.error(e)
     })
-     
-
   },
+  created(){
+    this.$store.dispatch('setPosts', this.loadedPosts)
+      console.log("this.$store.getters,loadedPosts", this.$store.getters,loadedPosts)
+  }
 };
 </script>
 <style scoped>
