@@ -14,33 +14,10 @@ export default {
   components: {
     PostList
   },
-  // data(){
-  //   return{
-  //     loadedPosts:[]
-  //   }
-  // },
-  asyncData(context, callback){
-    console.log('context',context)
-     setTimeout(()=>{
-       callback(null,{loadedPosts:[
-                {
-                  id:"1",
-                  title:"First Post~",
-                  previewText:"This is our first post!",
-                  thumbnail:"https://via.placeholder.com/150"
-                },
-                {
-                  id:"2",
-                  title:"Second Post",
-                  previewText:"This is our Second post!",
-                  thumbnail:"https://via.placeholder.com/150"
-                }
-               ]})
-       },1500)
-
-  },
-  created(){
-   
+  computed:{
+    loadedPosts(){
+      return this.$store.getters.loadedPosts
+    }
   }
 };
 </script>
