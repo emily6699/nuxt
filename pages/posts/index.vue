@@ -11,7 +11,7 @@ export default {
   components: {
     PostList
   },
-   asyncData(context){
+   fetch(context){
     return new Promise((resolve,reject)=>{
       setTimeout(()=>{
        resolve({loadedPosts:[
@@ -32,14 +32,15 @@ export default {
       // rejct(new Error())
     })
     .then(data=>{
-      return data
+      context.store.commit('setPosts',this.loadedPosts)
     }).catch(e=>{
       context.error(e)
     })
   },
-  created(){
-    this.$store.dispatch('setPosts', this.loadedPosts)
-      console.log("this.$store.getters,loadedPosts", this.$store.getters,loadedPosts)
+  computed:{
+    loadedPosts() {
+      return this.$store.getters.loadedPosts
+    }
   }
 };
 </script>
